@@ -1,32 +1,26 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { login } from "../api";
 
-function Login({ onLoginSuccess }) {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+const Login = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        const response = await fetch("https://frontend-take-home-service.fetch.com/auth/login", {
-            method: "POST",
-            credentials: "include",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email }),
-        });
+  const handleLogin = async () => {
+    const success = await login(name, email);
+    if (success) navigate("/dogs");
+    else alert("Login failed. Please try again.");
+  };
 
-        if (response.ok) {
-            onLoginSuccess();
-        } else {
-            alert("Login failed");
-        }
-    };
-
-    return (
-        <div>
-            <h2>Login</h2>
-            <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
-            <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-            <button onClick={handleLogin}>Login</button>
-        </div>
-    );
-}
+  return (
+    <div className="login-container">
+      <h2>Login</h2>
+      <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
+};
 
 export default Login;
