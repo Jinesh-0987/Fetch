@@ -16,7 +16,7 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-  "homepage": "https://github.com/Jinesh-0987/Fatch",
+  "homepage": "https://github.com/Jinesh-0987/Fetch",
   "browserslist": {
     "production": [
       ">0.2%",
