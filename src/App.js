@@ -1,9 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./login";
-import DogList from "./doglist";
-import { useState } from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import DogList from "./DogList";
 
 
 function App() {
