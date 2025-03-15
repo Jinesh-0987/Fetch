@@ -10,11 +10,11 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <Router>
-            <Routes>
-                <Route path="/" element={<Login onLoginSuccess={() => setIsLoggedIn(true)} />} />
-                {isLoggedIn && <Route path="/dogs" element={<DogList />} />}
-            </Routes>
-        </Router>
+    <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dogs" element={<DogList />} />
+    </Routes>
+</Router>
   );
 }
 
