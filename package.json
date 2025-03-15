@@ -42,7 +42,7 @@
 }
 
 {
-  "homepage": "https://Jinesh-0987.github.io/Fetch",
+  "homepage": "https://github.com/Jinesh-0987/Fetch.git",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
