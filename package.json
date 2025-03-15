@@ -38,10 +38,8 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
-  }
-}
-
-{
+  },
+  
   "homepage": "https://github.com/Jinesh-0987/Fetch.git",
   "scripts": {
     "predeploy": "npm run build",
