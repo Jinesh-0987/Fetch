@@ -1,49 +1,60 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../api";  // Ensure API is used for authentication
+import { FaUser, FaEnvelope } from "react-icons/fa"; // ✅ Icons for better UI
+import "./login.css"; // ✅ Import updated CSS
 
-const Login = () => {
+function Login() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     if (!name || !email) {
-      alert("Please enter both name and email.");
+      setError("⚠️ Please enter both Name and Email.");
       return;
     }
-
     try {
-      const success = await login(name, email);
-      if (success) {
-        navigate("/dogs");  // Redirect to the Dog List page after successful login
+      const response = await fetch("https://frontend-take-home-service.fetch.com/auth/login", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email }),
+      });
+
+      if (response.ok) {
+        navigate("/dogs"); // ✅ Redirect to dog list page
       } else {
-        alert("Login failed. Please try again.");
+        setError("⚠️ Login failed. Please check your details and try again.");
       }
-    } catch (error) {
-      alert("An error occurred while logging in.");
-      console.error("Login error:", error);
+    } catch (err) {
+      setError("⚠️ Network error. Please check your internet connection.");
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <input 
-        type="text" 
-        placeholder="Enter your name" 
-        value={name} 
-        onChange={(e) => setName(e.target.value)} 
-      />
-      <input 
-        type="email" 
-        placeholder="Enter your email" 
-        value={email} 
-        onChange={(e) => setEmail(e.target.value)} 
-      />
-      <button onClick={handleLogin}>Login</button>
+    <div className="login-page">
+      <div className="login-container">
+        <h2>🐶 Welcome to Dog Finder</h2>
+        {error && <p className="error-message">{error}</p>}
+
+        <form onSubmit={handleLogin} className="login-form">
+          <div className="input-container">
+            <FaUser className="icon" />
+            <input type="text" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} required />
+          </div>
+
+          <div className="input-container">
+            <FaEnvelope className="icon" />
+            <input type="email" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+      </div>
     </div>
   );
-};
+}
 
 export default Login;
