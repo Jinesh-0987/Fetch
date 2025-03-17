@@ -1,4 +1,4 @@
-/* ✅ Full Page Centered */
+/* Full Page Centered */
 .login-page {
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@
     background: #f4f4f4;
   }
   
-  /* ✅ Card-like Design */
+  /* Card-like Design */
   .login-container {
     width: 350px;
     padding: 20px;
@@ -17,7 +17,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  /* ✅ Error Message Styling */
+  /* Error Message Styling */
   .error-message {
     color: red;
     font-size: 14px;
@@ -27,7 +27,7 @@
     margin-bottom: 10px;
   }
   
-  /* ✅ Input Fields with Icons */
+  /* Input Fields with Icons */
   .input-container {
     display: flex;
     align-items: center;
@@ -45,13 +45,13 @@
     font-size: 16px;
   }
   
-  /* ✅ Icons for Better UI */
+  /* Icons for Better UI */
   .icon {
     color: gray;
     margin-right: 10px;
   }
   
-  /* ✅ Login Button */
+  /* Login Button */
   button {
     width: 100%;
     padding: 12px;

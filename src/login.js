@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaUser, FaEnvelope } from "react-icons/fa"; // ✅ Icons for better UI
-import "./login.css"; // ✅ Import updated CSS
+import { FaUser, FaEnvelope } from "react-icons/fa";
+import "./login.css";
 
 function Login() {
   const [name, setName] = useState("");
@@ -24,7 +24,7 @@ function Login() {
       });
 
       if (response.ok) {
-        navigate("/dogs"); // ✅ Redirect to dog list page
+        navigate("/dogs"); //Redirect to dog list page
       } else {
         setError("⚠️ Login failed. Please check your details and try again.");
       }

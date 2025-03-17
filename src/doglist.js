@@ -133,7 +133,7 @@ function DogList() {
         ))}
       </div>
 
-      {/* Favorite Dogs List (Always Visible) */}
+      {/* Favorite Dogs List */}
       {favorites.length > 0 && (
         <div style={{ marginTop: "30px", padding: "20px", background: "#f8f9fa", borderRadius: "10px" }}>
           <h3>❤️ Your Favorite Dogs</h3>
