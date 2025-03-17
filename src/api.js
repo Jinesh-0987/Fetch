@@ -8,7 +8,7 @@ export const login = async (name, email) => {
     const response = await axios.post(
       `${API_BASE_URL}/auth/login`,
       { name, email },
-      { withCredentials: true } // Required for authentication cookies
+      { withCredentials: true } // authentication cookies
     );
     return response.status === 200;
   } catch (error) {
